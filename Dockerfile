@@ -10,9 +10,9 @@ RUN npm i npm@latest -g
 
 RUN npm i -g pm2
 
-RUN git clone https://github.com/mophos/queue-web
+RUN git clone https://github.com/mophos/queue-web-dmh
 
-RUN git clone https://github.com/mophos/queue-api
+RUN git clone https://github.com/mophos/queue-api-dmh
 
 RUN git clone https://github.com/mophos/queue-mqtt
 
