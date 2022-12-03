@@ -1,14 +1,10 @@
-FROM mophos/mmis-nginx
+FROM siteslave/nginx-nodejs
 
 LABEL maintainer="Satit Rianpit <rianpit@gmail.com>"
 
 WORKDIR /home/queue
 
-RUN apk add --upgrade --no-cache --virtual deps python build-base
-
-RUN npm i npm@latest -g
-
-RUN npm i -g pm2
+RUN npm i pm2 -g
 
 RUN git clone https://github.com/mophos/queue-web-dmh
 
@@ -26,4 +22,4 @@ COPY nginx.conf /etc/nginx/
 
 COPY process.json .
 
-CMD /usr/sbin/nginx && /usr/bin/pm2-runtime process.json
+CMD /usr/sbin/nginx && pm2-runtime process.json
